@@ -48,13 +48,24 @@ class GameFragment : Fragment() {
                 false
         )
 
-        binding.correctButton.setOnClickListener { viewModel.onCorrect() }
-        binding.skipButton.setOnClickListener { viewModel.onSkip() }
+        binding.correctButton.setOnClickListener { onCorrect() }
+        binding.skipButton.setOnClickListener { onSkip() }
         updateScoreText()
         updateWordText()
         return binding.root
-
     }
+
+    private fun onSkip() {
+        viewModel.onSkip()
+        updateWordText()
+        updateScoreText()
+    }
+    private fun onCorrect() {
+        viewModel.onCorrect()
+        updateScoreText()
+        updateWordText()
+    }
+
 
     private fun updateWordText() {
         binding.wordText.text = viewModel.word

@@ -14,16 +14,6 @@ class GameViewModel : ViewModel() {
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
 
-    init {
-        resetList()
-        nextWord()
-        Log.i("GameViewModel", "GameViewModel created!")
-    }
-    override fun onCleared() {
-        super.onCleared()
-        Log.i("GameViewModel", "GameViewModel destroyed!")
-    }
-
     /**
      * Resets the list of words and randomizes the order
      */
@@ -54,6 +44,16 @@ class GameViewModel : ViewModel() {
         wordList.shuffle()
     }
 
+    init {
+        resetList()
+        nextWord()
+        Log.i("GameViewModel", "GameViewModel created!")
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("GameViewModel", "GameViewModel destroyed!")
+    }
 
     /** Methods for buttons presses **/
 
